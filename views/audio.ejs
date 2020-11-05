@@ -1,0 +1,37 @@
+<%- include("_header") -%>
+
+<h1>Lista de Audios (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Artista</th>
+        <th>Comentários</th>
+        <th>Nome do arquivo</th>
+        <th>Preview</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/audio/create_audio">Nova mídia</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const audio of model) { %>
+        <tr>
+          <td><%= audio.Title %></td>
+          <td><%= audio.Artist %></td>
+          <td><%= audio.Comments %></td>
+          <td><%= audio.Url %></td> <!--<%= audio.Url %>-->
+          <td> <audio controls><source src="<%= audio.Url %>" type="audio/mpeg"> </audio> </td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/audio/edit_audio/<%= audio.Audio_ID %>">Editar</a>
+            <a class="btn btn-sm btn-danger" href="/audio/delete_audio/<%= audio.Audio_ID %>">Deletar</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>

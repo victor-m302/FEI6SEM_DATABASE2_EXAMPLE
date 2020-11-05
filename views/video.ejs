@@ -1,0 +1,39 @@
+<%- include("_header") -%>
+
+<h1>Lista de Videos (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Proprietário</th>
+        <th>Comentários</th>
+        <th>Nome do arquivo</th>
+        <th>Miniatura</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/video/create_video">Nova mídia</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const video of model) { %>
+        <tr>
+          <td><%= video.Title %></td>
+          <td><%= video.Owner %></td>
+          <td><%= video.Comments %></td>
+          <td><%= video.Url %></td>
+
+
+          <td> <video width="160" controls><source src="<%= video.Url %>" type="video/mp4"><source src="<%= video.Url %>" type="video/webm"> </video> </td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/video/edit_video/<%= video.Video_ID %>">Editar</a>
+            <a class="btn btn-sm btn-danger" href="/video/delete_video/<%= video.Video_ID %>">Deletar</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>

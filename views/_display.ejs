@@ -1,0 +1,36 @@
+
+<div class="form-group row">
+    <label class="col-form-label col-sm-2" for="Title">Título</label>
+    <div class="col-sm-8">
+      <input readonly class="form-control" id="Title" value="<%= model.Title %>" />
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="Author">Autor</label>
+    <div class="col-sm-7">
+      <input readonly class="form-control" id="Author" value="<%= model.Author %>" />
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="Comments">Comentários</label>
+    <div class="col-sm-10">
+      <textarea readonly class="form-control" 
+                cols="20" id="Comments" 
+                maxlength="32000" 
+                rows="7"><%= model.Comments %></textarea>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="Url">Preview de Imagem</label>
+    <div class="col-sm-8">
+      <img src="/image/<%=model.Url%>" alt="404" class="width:250px; cursor: no-drop;"/>
+    </div>
+  </div>
+  
+
+
+  
+  
